@@ -275,7 +275,7 @@ static u32 log_buf_len = __LOG_BUF_LEN;
 #ifdef CONFIG_MT_PRINTK_UART_CONSOLE
 
 extern int mt_need_uart_console;
-inline void mt_disable_uart()
+void mt_disable_uart()
 {
     if (mt_need_uart_console == 0) {
         printk("<< printk console disable >>\n");
@@ -284,7 +284,7 @@ inline void mt_disable_uart()
         printk("<< printk console can't be disabled >>\n");
     }
 }
-inline void mt_enable_uart()
+void mt_enable_uart()
 {
     if (mt_need_uart_console == 1) {
         if (printk_disable_uart == 0)
