@@ -1,0 +1,69 @@
+
+/dts-v1/;
+
+/include/ "mt6752.dtsi"
+
+/ {
+	memory@00000000 {
+		device_type = "memory";
+		reg = <0 0x40000000 0 0xFA00000>;
+	};
+
+	bus {
+		compatible = "simple-bus";
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges = <0 0 0 0xffffffff>;
+
+		I2C0@0x11007000 {
+			gt9xx@5d {
+				compatible = "gt9xx";
+				reg = <0x5d>;
+			};
+
+			bq24261@6b {
+				compatible = "bq24261";
+				reg = <0x6b>;
+			};
+
+			mt6306@64 {
+				compatible = "mediatek,mt6306";
+				reg = <0x64>;
+			};
+		};
+
+		I2C1@0x11008000 {
+			yas533@2e {
+				compatible = "yas533";
+				reg = <0x2e>;
+			};
+
+			mpu-6515@68 {
+				compatible = "mpu-6515";
+				reg = <0x68>;
+			};
+
+			bmp180@77 {
+				compatible = "bmp180";
+				reg = <0x77>;
+			};
+
+			cm36652@60 {
+				compatble = "cm36652";
+				reg = <0x60>;
+			};
+
+			mt6605@28 {
+				compatible = "mediatek,mt6605";
+				reg = <0x28>;
+			};
+		};
+
+	};
+
+    TOUCH@0 {
+	    compatible = "mediatek,TPD";
+        eint-gpio = <139 0>;
+        rst-gpio = <144 0>;
+    };
+};

@@ -1,0 +1,30 @@
+
+/dts-v1/;
+
+/include/ "mt6752.dtsi"
+
+/ {
+	memory@00000000 {
+		device_type = "memory";
+		reg = <0 0x40000000 0 0x80000000>;
+	};
+
+	bus {
+		compatible = "simple-bus";
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges = <0 0 0 0xffffffff>;
+
+		I2C0@0x11007000 {
+			ncp1854@36 {
+				compatible = "ncp1854";
+				reg = <0x36>;
+			};
+		};
+    TOUCH@0 {
+    	compatible = "mediatek,TPD";
+		eint-gpio = <139 1>;
+		rst-gpio = <144 1>;
+		interrupts = <139 2>;
+	};
+};

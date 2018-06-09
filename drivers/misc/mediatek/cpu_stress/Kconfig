@@ -1,0 +1,5 @@
+config MTK_CPU_STRESS
+  bool CONFIG_MTK_CPU_STRESS
+  default n
+  help
+    CONFIG_MTK_CPU_STRESS

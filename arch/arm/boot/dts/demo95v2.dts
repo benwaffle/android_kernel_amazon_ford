@@ -1,0 +1,28 @@
+/*
+ * Mediatek's MT6595 SoC device tree source
+ *
+ * Copyright (c) 2013 MediaTek Co., Ltd.
+ *              http://www.mediatek.com
+ *
+ */
+
+/dts-v1/;
+/include/ "mt6595.dtsi"
+/include/ "cust_eint.dtsi"
+
+/ {
+	bus {
+		compatible = "simple-bus";
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges = <0 0 0 0xffffffff>;
+		
+		HAN@0x13000000 {
+			compatible = "mediatek,HAN";
+			reg = <0x13000000 0xFFFF>;
+			interrupts = <0 217 0x8>;
+			interrupt-names = "RGX";
+			clock-frequency = <600000000>;
+		};
+	};
+};
